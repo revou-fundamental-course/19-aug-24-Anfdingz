@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="script.js">
+        
+
+    </script>
+
+</head>
+<body>
+
+
+    <header>
+        <a href="#" class="logo">Travel</a>
+        <nav>
+            <div class="menu">
+                <ul>
+                    <li><a href="#Home" class="active">Home</a></li>
+                    <li><a href="#OurProfile">OurProfile</a></li>
+                    <li><a href="#Achievment">Achievement</a></li>
+                    <li><a href="#MessageUs">MessageUs</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <section id="Home" style="background-image: url('assets/output-onlinepngtools.png'); width: 100%; ">
+        <div class="head">
+            <p id="welcome-text" style="font-size: 30px;"> Hello [Nama], Tempat Untukmu Yang Gabut </p>
+            <p style="font-size: 20px;"> <b>Welcome To Travel</b></p>
+            <div class="visi">
+                <p style="font-size: 20;"><b>Visi</b></p>
+                <p style="font-size: 15px; "> <b>Empower people through great Survival anytime, <br>anyplace, and anywhere</b></p>
+            </div>
+            <div class="misi">
+                <p style="font-size: 20;"><b>Mission</b></p>
+                <p style="font-size: 15px; "> <b> To create a better everyday life for many people. <br>Our business idea supports this vision<br>by offering a wide range of well-designed, <br>Survial Training at prices so low that<br>as many people as possible will be able to afford them</b></p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="OurProfile">
+        <div class="header0">
+            <h3>Our Profile</h3>
+        </div>
+        <div class="facilitation">
+            <div class="profile-info">
+                <p>Beridi Tahun 2024, Kami Travel Mengajak Anda Bagaimana Bertahan Hidup,<br>Travel menghargai pelanggan berdasarkan kepuasan mereka, kami ingin tumbuh bersama mereka. Kami menyukai kemitraan dan berbagi kesuksesan penuh bersama-sama, karena kami percaya kami tidak bisa menjadi hebat sendirian tapi bersama-sama kita bisa mencapai segalanya.</p>
+            </div>
+            <div class="images">
+                <div>
+                    <img src="assets/jeep.jpg" alt="Jeep">  
+                    <p>Best Travel </p>
+                </div>
+                <div>
+                    <img src="assets/condition.jpeg" alt="Condition">
+                    <p>Top Weather Forecast</p>
+                </div>
+                <div>
+                    <img src="assets/best teacher.png" alt="Best Teacher"> 
+                    <p> Survival Expert</p>
+                </div>
+        </div>
+    </section>
+
+
+    <section id="MessageUs" style="background-image: url('assets/wallpepaers.png'); width: 100%; background-repeat: no-repeat;">
+        <div>
+            <h3 style="text-align: center;">MessageUs</h3>
+        </div>
+
+        <div class="contact-form">
+            <form id="message-form">
+                <table>
+                    <tr>
+                        <td><label for="name">Nama:</label></td>
+                        <td><input type="text" id="name" name="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="dob">Tanggal Lahir:</label></td>
+                        <td><input type="date" id="dob" name="dob"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Jenis Kelamin:</label></td>
+                        <td>
+                            <input type="radio" id="male" name="gender" value="Laki-Laki">
+                            <label for="male">Laki-Laki</label>
+                            <input type="radio" id="female" name="gender" value="Perempuan">
+                            <label for="female">Perempuan</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="message">Pesan:</label></td>
+                        <td><textarea id="message" name="message"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="button" onclick="submitForm()">Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        
+            <div id="result">
+                <p style="margin: 0;" id="submitted-time">Current time: </p><br><br>
+                <p style="margin: 0;" id="submitted-name">Nama: </p>
+                <p style="margin: 0;" id="submitted-dob">Tanggal Lahir: </p>
+                <p style="margin: 0;" id="submitted-gender">Jenis Kelamin: </p>
+                <p style="margin: 0;" id="submitted-message">Pesan: </p><br><br><br>
+            </div>
+        
+        </div> 
+    </section>
+
+
+    <footer>
+        <p>Created By Aldi Kasakeyan</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+    // Ambil nilai form
+    var name = document.getElementById("name").value;
+    var dob = document.getElementById("dob").value;
+    var gender = document.querySelector('input[name="gender"]:checked');
+    var message = document.getElementById("message").value;
+
+    // Validasi form
+    if (name === "") {
+        alert("Nama harus diisi!");
+        return;
+    }
+    if (dob === "") {
+        alert("Tanggal lahir harus diisi!");
+        return;
+    }
+    if (gender === null) {
+        alert("Jenis kelamin harus dipilih!");
+        return;
+    }
+    if (message === "") {
+        alert("Pesan harus diisi!");
+        return;
+    }
+
+    // Ambil waktu saat ini
+    var currentTime = new Date().toLocaleString("en-GB", { timeZone: "GMT", timeZoneName: "short" });
+
+    // Set nilai di area kanan
+    document.getElementById("submitted-time").innerText = "Current time: " + currentTime;
+    document.getElementById("submitted-name").innerText = "Nama: " + name;
+    document.getElementById("submitted-dob").innerText = "Tanggal Lahir: " + dob;
+    document.getElementById("submitted-gender").innerText = "Jenis Kelamin: " + gender.value;
+    document.getElementById("submitted-message").innerText = "Pesan: " + message;
+
+    // Ganti nama di bagian welcome text
+    document.getElementById("welcome-text").innerText = "Hi " + name + ", Welcome To Website";
+}
+    </script>
+    
+
+</body>
+</html>

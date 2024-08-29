@@ -1,0 +1,194 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/boca.css">
+
+    <script>
+        function validateForm() {
+            var nama = document.forms["messageForm"]["nama"].value;
+            var tanggalLahir = document.forms["messageForm"]["tanggal-lahir"].value;
+            var jenisKelamin = document.forms["messageForm"]["jenis-kelamin"].value;
+            var pesan = document.forms["messageForm"]["pesan"].value;
+
+            if (nama == "") {
+                alert("Nama harus diisi");
+                return false;
+            }
+
+            if (tanggalLahir == "") {
+                alert("Tanggal Lahir harus diisi");
+                return false;
+            }
+
+            if (!document.forms["messageForm"]["jenis-kelamin"][0].checked && !document.forms["messageForm"]["jenis-kelamin"][1].checked) {
+                alert("Jenis Kelamin harus dipilih");
+                return false;
+            }
+
+            if (pesan == "") {
+                alert("Pesan harus diisi");
+                return false;
+            }
+
+            // Jika semua sudah diisi, form akan dikirim
+            return true;
+        }
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">Travel</a>
+    <nav>
+        <div class="menu">
+            <ul>
+            <li style="border-top-left-radius: 5px; border-bottom-left-radius: 5px;"><a href="#Home" class="active"> Home</a></li>
+            <li><a href="#OurProfile"> OurProfile</a></li>
+            <li><a href="#Achievment"> Achievement</a></li>
+            <li style="border-top-right-radius: 5px; border-bottom-right-radius: 5px;"><a href="#MessageUs"> MessageUs</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section id="Home">
+    <div class="head">
+    <p style="font-size: 30px; display: inline;"> Hello  </p> <p style="font-size: 30px; display: inline;" id="Username">Everyone </p> 
+    <p style="font-size: 30px; display: inline;">, Tempat Mengilangkan Gabutmu</p>
+    <p style="font-size: 20px;">Welcome To Travel</p>
+
+    <div style="border: 1px solid black; border-width: 2px;  ">
+    <p style="text-align: center;"> <b>Visi</b></p> <p style="text-align: center;">Empower people through great software anytime,
+        <br> anyplace, and on any device</p>
+    </div>
+        <div style="border: 1px solid black; border-width: 2px;margin-top: 10px;  ">
+         <p style="text-align: center;"><b>Mission</b> </p>
+        <p style="text-align: center;">
+            To create a better everyday life for many people. <br>
+           Our business idea supports this vision<br>
+          by offering a wide range of well-designed, <br>
+            functional Training at prices so low that<br>
+         as many people as possible will be able to afford them
+        </p>
+        </div>
+    </div>
+</section>
+
+
+<section id="OurProfile">
+    <div class="header0">
+        <h3 style=" margin-top: 30px; margin-left: 80px; font-size: 25px; color: black; ">Our Profile</h3>
+    
+    </div>
+    <div class="facilitation">
+        <p style="display: inline-block; border: 0;"> Beridi Tahun 2024, Kami Travel Mengajak Anda Bagaimana Bertahan Hidup,<br>
+            Travel menghargai pelanggan
+            berdasarkan kepuasan mereka, kami ingin tumbuh bersama mereka.
+            Kami menyukai kemitraan dan berbagi kesuksesan penuh bersama-sama,
+            karena kami percaya kami tidak bisa menjadi hebat sendirian
+            tapi bersama-sama kita bisa mencapai segalanya.
+        </p>
+        <p> <img src="assets/jeep.jpg" alt="" style="clip-path: circle(); width: 200px; height: 200px;"></p>
+        <p> <img src="assets/condition.jpeg" alt="" style="clip-path: circle(); width: 200px; height: 200px;"></p>
+        <p> <img src="assets/best teacher.png" alt="" style="clip-path: circle(); width: 200px; height: 200px;"></p>
+    </div>
+        <div class="textourprofile">
+        <p >Expert Travel</p>
+        <p style="padding-left:370px; padding-right:320px;">Best Condition Forecast</p>
+        <p style="margin-right: -420px;"> Best Teacher </p>
+        </div>    
+</section>
+
+
+<section id="MessageUs">
+    <div >
+        <h3 style="margin-top: 30px; margin-left: 80px; font-size: 25px;">MessageUs</h3>
+    </div>
+  
+   <div class="contact-form">
+    <form name="messageForm" onsubmit="return validateForm()">
+    <label style="font-size: large; " for="nama">Nama &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+    <input style="font-size: large; width: 300px;" type="text" id="nama" name="nama" placeholder="Nama"><br><br>
+
+
+    <label style="font-size: large;" for="tanggal-lahir">Tanggal Lahir:</label>
+    <input style="font-size: large; width: 300px;" type="date" id="tanggal-lahir" name="tanggal-lahir"><br><br>
+        <!--for="gender"-->
+    <label style="font-size: large;">Jenis Kelamin:</label>
+    <input type="radio" id="male" name="jenis-kelamin" value="Laki-Laki"> Laki-Laki
+    <!--<label style="font-size: large;" for="male">Laki-Laki</label>-->
+    <input type="radio" id="female" name="jenis-kelamin" value="Perempuan"> Perempuan <br><br>
+    <!--<label style="font-size: large;" for="female">Perempuan</label><br><br>-->
+
+    <label style="font-size: large; vertical-align: top;" for="pesan">Pesan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+    <textarea cols="38" rows="6" id="message" name="pesan" placeholder="Apa pesanmu ?"></textarea><br><br>
+
+
+    <button style="width: 410px; height: 30px;" type="submit" id="button">Submit</button>
+    </form>
+
+    <div class="contact-info" >
+    <p style="margin-left: 10px;"><b>Current time</b>: Fri Jun 17 2022 11:27:28 GMT+0100</p><br><br>
+    <p style="margin: 0; margin-left: 10px; display: inline;"><b>Nama</b> : </p> <p style="margin: 0; margin-left: 10px; display: inline;"> Nama </p> <br>
+    <p style="margin: 0; margin-left: 10px; display: inline;"><b>Tanggal Lahir</b>: </p>  <p style="margin: 0; margin-left: 10px; display: inline;"> 01/11/1995</p> <br>
+    <p style="margin: 0; margin-left: 10px; display: inline;"><b>Jenis Kelamin</b>: </p> <p style="margin: 0; margin-left: 10px; display: inline;">Laki - Laki</p><br>
+    <p style="margin: 0; margin-left: 10px; display: inline;"><b>Pesan</b>: </p> <p style="margin: 0; margin-left: 10px; display: inline;"> Lagi Belajar buat Website</p> 
+    </div>
+</div>
+   
+</section>
+
+<footer>
+    <p style="margin-right: 30px; color: azure;">Created By Aldi Kasakeyan</p>
+</footer>
+
+
+<section id="MessageUs">
+    <div>
+        <h3 style="margin-top: 30px; margin-left: 80px; font-size: 25px;">MessageUs</h3>
+    </div>
+  
+   <div class="contact-form">
+        <form name="messageForm" onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <td><label for="nama">Nama:</label></td>
+                    <td><input type="text" id="nama" name="nama" placeholder="Nama"></td>
+                </tr>
+                <tr>
+                    <td><label for="tanggal-lahir">Tanggal Lahir:</label></td>
+                    <td><input type="date" id="tanggal-lahir" name="tanggal-lahir"></td>
+                </tr>
+                <tr>
+                    <td><label>Jenis Kelamin:</label></td>
+                    <td>
+                        <input type="radio" id="male" name="jenis-kelamin" value="Laki-Laki"> Laki-Laki
+                        <input type="radio" id="female" name="jenis-kelamin" value="Perempuan"> Perempuan
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="pesan">Pesan:</label></td>
+                    <td><textarea cols="38" rows="6" id="message" name="pesan" placeholder="Apa pesanmu?"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <button type="submit" id="button">Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</section>
+
+
+
+<script src="boca.js">
+
+
+</script>
+
+</body>
+</html>

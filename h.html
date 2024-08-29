@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <style>
+        table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #result {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcome-text" style="text-align: center;">Hi [Nama], Welcome To Website</h1>
+    <p style="text-align: center;">Ini adalah website latihan pertama</p>
+
+    <form id="message-form">
+        <table>
+            <tr>
+                <td><label for="name">Nama:</label></td>
+                <td><input type="text" id="name" name="name"></td>
+            </tr>
+            <tr>
+                <td><label for="dob">Tanggal Lahir:</label></td>
+                <td><input type="date" id="dob" name="dob"></td>
+            </tr>
+            <tr>
+                <td><label>Jenis Kelamin:</label></td>
+                <td>
+                    <input type="radio" id="male" name="gender" value="Laki-Laki">
+                    <label for="male">Laki-Laki</label>
+                    <input type="radio" id="female" name="gender" value="Perempuan">
+                    <label for="female">Perempuan</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="message">Pesan:</label></td>
+                <td><textarea id="message" name="message"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="submitForm()">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="result">
+        <p id="submitted-time">Current time: </p>
+        <p id="submitted-name">Nama: </p>
+        <p id="submitted-dob">Tanggal Lahir: </p>
+        <p id="submitted-gender">Jenis Kelamin: </p>
+        <p id="submitted-message">Pesan: </p>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Ambil nilai form
+            var name = document.getElementById("name").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.querySelector('input[name="gender"]:checked');
+            var message = document.getElementById("message").value;
+
+            // Validasi form
+            if (name === "") {
+                alert("Nama harus diisi!");
+                return;
+            }
+            if (dob === "") {
+                alert("Tanggal lahir harus diisi!");
+                return;
+            }
+            if (gender === null) {
+                alert("Jenis kelamin harus dipilih!");
+                return;
+            }
+            if (message === "") {
+                alert("Pesan harus diisi!");
+                return;
+            }
+
+            // Ambil waktu saat ini
+            var currentTime = new Date().toLocaleString("en-GB", { timeZone: "GMT", timeZoneName: "short" });
+
+            // Set nilai di area kanan
+            document.getElementById("submitted-time").innerText = "Current time: " + currentTime;
+            document.getElementById("submitted-name").innerText = "Nama: " + name;
+            document.getElementById("submitted-dob").innerText = "Tanggal Lahir: " + dob;
+            document.getElementById("submitted-gender").innerText = "Jenis Kelamin: " + gender.value;
+            document.getElementById("submitted-message").innerText = "Pesan: " + message;
+
+            // Ganti nama di bagian welcome text
+            document.getElementById("welcome-text").innerText = "Hi " + name + ", Welcome To Website";
+        }
+    </script>
+</body>
+</html>
